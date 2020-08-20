@@ -147,6 +147,8 @@
 
 const char * PLAYER_SPRITE[] = {" =A= ", "====="};
 
+const char * PLAYER_EXPLOSION_SPRITE[] = {",~^.'", "=====", "'+-`.", "====="};
+
 const char PLAYER_MISSILE_SPRITE = '|';
 
 const char * SHIELD_SPRITE[] = {"/IIIII\\", "IIIIIII", "I/   \\I"};
@@ -158,6 +160,8 @@ const char * ALIEN20_SPRITE[] = {" >< ", "|\\/|", "|><|", "/  \\"};
 const char * ALIEN10_SPRITE[] = {"/--\\", "/  \\", "/--\\", "<  >"};
 
 const char * ALIEN_EXPLOSION[] = {"\\||/", "/||\\"};
+
+const char * ALIEN_BOMB_SPRITE = "\\|/-";
 
 enum
 {
@@ -172,13 +176,14 @@ enum
 	NOT_IN_PLAY = -1,
 	PLAYER_MOVEMENT_AMOUNT = 2,
 	PLAYER_MISSILE_SPEED = 1,
-	FPS = 20,
+	FPS = 15,
 	NUM_SHIELDS = 4,
 	ALIEN_SPRITE_WIDTH = 4,
 	ALIEN_SPRITE_HEIGHT = 2,
 	ALIENS_X_PADDING = 1,
 	ALIENS_Y_PADDING = 1,
-	ALIEN_EXPLOSION_TIME = 4
+	ALIEN_EXPLOSION_TIME = 4,
+	ALIEN_BOMB_SPEED = 1,
 };
 
 enum AlienState
@@ -270,6 +275,7 @@ struct Game
 	Size windowSize;
 	GameState currentState;
 	int level;
+	int waitTimer;
 };
 
 #endif /* TEXTINVADERS_H_ */
